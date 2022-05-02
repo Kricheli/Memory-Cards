@@ -34,6 +34,48 @@ body{
 }
 .flipped-card{
         background: url(../images/back-card.jpg);
-        height: 5rem;
-        width: 3rem;
+        height: 20rem;
+        width: 15rem;
+}
+
+.ace{
+        background: url(../images/ace.png);
+        height: 20rem;
+        width: 15rem;
+
+}
+
+.king{
+        background: url(../images/king.jpg);
+        height: 20rem;
+        width: 15rem;
+
+}
+
+.queen{
+        background: url(../images/queen.jpg);
+        height: 20rem;
+        width: 15rem;
+
+}
+
+.prince{
+        background: url(../images/jack.jpg);
+        height: 20rem;
+        width: 15rem;
+
+}
+
+.ten{
+        background: url(../images/ten\ card.png);
+        height: 20rem;
+        width: 15rem;
+
+}
+
+.five{
+        background: url(../images/card55.png);
+        height: 20rem;
+        width: 15rem;
+
 }
