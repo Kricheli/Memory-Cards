@@ -36,14 +36,23 @@ export function shuffle(originalArray) {
 
 export function drawCards(cards, element) {
 
-        for (card of cards) {
-            cardToDraw = document.createElement('div')
+        for(let card of cards) {
+            const cardToDraw = document.createElement('div')
             cardToDraw.setAttribute('type', card);
             cardToDraw.setAttribute('class' , 'flipped-card');
-        //     cardToDraw.addEventListener('click' , checkGame);
+            cardToDraw.addEventListener('click',flipCard);
             element.appendChild(cardToDraw);
         }
 
     }
+
+    function flipCard(event){
+        const element = event.target;
+        element.setAttribute('class','ace');
+        
+    }
+
+
+
 
 

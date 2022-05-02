@@ -34,6 +34,13 @@ body{
 }
 .flipped-card{
         background: url(../images/back-card.jpg);
-        height: 5rem;
-        width: 3rem;
+        height: 20rem;
+        width: 15rem;
+}
+
+.ace{
+        background: url(../images/ace.png);
+        height: 20rem;
+        width: 15rem;
+
 }

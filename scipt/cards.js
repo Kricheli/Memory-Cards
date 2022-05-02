@@ -1,6 +1,6 @@
-import {generatedCards, cardArrayOptions, shuffle, drawCards} from './game.js'
+import {generateCards as generateCards , cardArrayOptions as cardArrayOptions , shuffle as shuffle, drawCards as drawCards} from './game.js'
 
-const gameCards =  generatedCards(cardArrayOptions);
+const gameCards =  generateCards(cardArrayOptions);
 
 const tableGame = document.querySelector('.grid');
 
