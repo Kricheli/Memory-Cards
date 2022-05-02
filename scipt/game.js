@@ -1,8 +1,15 @@
 
+const tableGame = document.querySelector('.grid');
+const playerMessage = document.querySelector('#header')
+const playerInnerMessage = document.querySelector('#paragraph')
 
-export const cardArrayOptions = ['ace', 'king', 'queen', 'prince', 'ten', 'five'];
+tableGame.addEventListener('click', flipCard);
+tableGame.addEventListener('click', gameCheck);
 
-
+export const cardArrayOptions = ['ace', 'two', 'queen', 'prince', 'ten', 'seven'];
+let lastFlippedCard = null;
+let guessesRight = 0;
+let guessesWrong = 0;
 export function generateCards(cardArrayOptions) {
     const cardArray = [];
     for (let i = 0; i < cardArrayOptions.length; i++) {
@@ -36,14 +43,66 @@ export function shuffle(originalArray) {
 
 export function drawCards(cards, element) {
 
-        for (card of cards) {
-            cardToDraw = document.createElement('div')
-            cardToDraw.setAttribute('type', card);
-            cardToDraw.setAttribute('class' , 'flipped-card');
-        //     cardToDraw.addEventListener('click' , checkGame);
-            element.appendChild(cardToDraw);
+    for (let card of cards) {
+        const cardToDraw = document.createElement('div')
+        cardToDraw.setAttribute('type', card);
+        cardToDraw.setAttribute('class', 'flipped-card');
+        // cardToDraw.addEventListener('click', flipCard);
+        // cardToDraw.addEventListener('click', gameCheck);
+        element.appendChild(cardToDraw);
+  
+    }
+
+}
+
+function flipCard(event) {
+    const element = event.target;
+    element.setAttribute('class', element.getAttribute('type'));
+    // gameCheck(event)
+
+}
+
+function gameCheck(event) {
+    const arr = [];
+    console.log('gamecheck working')
+    if (lastFlippedCard === null) {
+        lastFlippedCard = event.target;
+    }
+    else if (lastFlippedCard.getAttribute('class') === event.target.getAttribute('class')) {
+        guessesRight++;
+        if( guessesRight === 6){
+        return (playerInnerMessage.textContent = 'Congrats Einstein, you won!')
         }
+        lastFlippedCard = null;
+    } 
+    else {
+        console.log('else working')
+        guessesWrong++
+        setTimeout(function () { flipAgain(lastFlippedCard, event.target) }, 2000);
+        tableGame.removeEventListener('click', flipCard);
+        tableGame.removeEventListener('click', gameCheck);
+        setTimeout(function () {
+            tableGame.addEventListener('click', flipCard);
+            tableGame.addEventListener('click', gameCheck);
+        }, 2000)
 
     }
+
+}
+tableGame.addEventListener('click', ()=>{
+
+})
+
+
+
+
+function flipAgain(card1, card2) {
+
+    console.log('working again')
+    card1.setAttribute('class', 'flipped-card')
+    card2.setAttribute('class', 'flipped-card')
+    lastFlippedCard = null
+
+}
 
 
