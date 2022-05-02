@@ -1,10 +1,12 @@
 
 const tableGame = document.querySelector('.grid');
+const playerMessage = document.querySelector('#header')
+const playerInnerMessage = document.querySelector('#paragraph')
 
 tableGame.addEventListener('click', flipCard);
 tableGame.addEventListener('click', gameCheck);
 
-export const cardArrayOptions = ['ace', 'king', 'queen', 'prince', 'ten', 'five'];
+export const cardArrayOptions = ['ace', 'two', 'queen', 'prince', 'ten', 'seven'];
 let lastFlippedCard = null;
 let guessesRight = 0;
 let guessesWrong = 0;
@@ -48,6 +50,7 @@ export function drawCards(cards, element) {
         // cardToDraw.addEventListener('click', flipCard);
         // cardToDraw.addEventListener('click', gameCheck);
         element.appendChild(cardToDraw);
+  
     }
 
 }
@@ -60,15 +63,18 @@ function flipCard(event) {
 }
 
 function gameCheck(event) {
-
+    const arr = [];
     console.log('gamecheck working')
     if (lastFlippedCard === null) {
         lastFlippedCard = event.target;
     }
     else if (lastFlippedCard.getAttribute('class') === event.target.getAttribute('class')) {
         guessesRight++;
+        if( guessesRight === 6){
+        return (playerInnerMessage.textContent = 'Congrats Einstein, you won!')
+        }
         lastFlippedCard = null;
-    }
+    } 
     else {
         console.log('else working')
         guessesWrong++
@@ -83,6 +89,9 @@ function gameCheck(event) {
     }
 
 }
+tableGame.addEventListener('click', ()=>{
+
+})
 
 
 

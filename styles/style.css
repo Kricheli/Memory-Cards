@@ -2,10 +2,15 @@
         margin: 0;
         padding: 0;
 }
+html{
+        cursor: url(../images/cursor.cur), auto;
+        height: 100vh;
+}
 body{
         background: url(../images/bg1.jpg) no-repeat center center/cover;
-        height: 100vh;
-        width: 100vw;
+        text-align: center;
+        /* height: 100vh; */
+        /* width: 100vw; */
 }
 .container h1{
        text-align: center;
@@ -25,30 +30,37 @@ body{
         align-items: center;
 }
 .grid{
-        /* height: 30rem ;
-        width: 20rem; */
-        border: 2px solid white;
+        /* height: 20rem ;
+        width: 20rem;  */
+        /* height: 60px; */
+        grid-gap: 0.5rem;
+        /* border: 2px solid white; */
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
 }
 .flipped-card{
-        background: url(../images/back-card.jpg);
+        background: url(../images/flipped-back-card-resize.png);
         height: 20rem;
         width: 15rem;
 }
 
 .ace{
-        background: url(../images/ace.png);
+        background: url(../images/one-card.jpg);
         height: 20rem;
         width: 15rem;
+        box-shadow: 10px 20px 20px rgba(82, 82, 82, 0.73);
+        border-radius: 30px;
 
 }
 
-.king{
-        background: url(../images/king.jpg);
+.two{
+        background: url(../images/two-card.jpg);
         height: 20rem;
         width: 15rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 30px;
+
 
 }
 
@@ -56,26 +68,38 @@ body{
         background: url(../images/queen.jpg);
         height: 20rem;
         width: 15rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 30px;
+
 
 }
 
 .prince{
-        background: url(../images/jack.jpg);
+        background: url(../images/prince.jpg);
         height: 20rem;
         width: 15rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 30px;
+
 
 }
 
 .ten{
-        background: url(../images/ten\ card.png);
+        background: url(../images/ten.jpg);
         height: 20rem;
         width: 15rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 30px;
+
 
 }
 
-.five{
-        background: url(../images/card55.png);
+.seven{
+        background: url(../images/seven.jpg);
         height: 20rem;
         width: 15rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 30px;
+
 
 }
