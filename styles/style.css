@@ -8,15 +8,23 @@ html {
         height: 100vh;
 }
 
-body {
-        background: url(../images/bg1.jpg) no-repeat center center/cover;
+body{
+        background: url(../images/fortnite-background.png) no-repeat center center/cover;
+
         text-align: center;
         /* height: 100vh; */
         /* width: 100vw; */
 }
 
-.container h1 {
-        text-align: center;
+.container h1{
+       text-align: center;
+       font-family: wonderbar;
+       font-size: 42px;
+       background: -webkit-linear-gradient(rgb(115, 100, 100), #333);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       text-shadow: 15px 20px 20px rgb(108, 108, 108);
+
 }
 
 .text-container {
@@ -25,19 +33,40 @@ body {
 }
 
 .side-bar-container {
-        height: 50rem;
-        width: 11rem;
-
+        height: 38rem;
+        width: 15rem;
         padding: 20px;
-        border: 2px solid white;
+        font-family: "game";
+        /* border: 2px solid white; */
+        background: rgb(34,193,195);
+        background: linear-gradient(357deg, rgba(34,193,195,0.5163107479319853), rgba(253,187,45,0.5891398795846463) );
+        text-shadow: 10px 10px 20px #333;
         color: #ccc;
-        font-size: 40px;
-        font-weight: bold;
+        font-size: 30px;
+        /* font-weight: bold; */
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         text-align: center;
         border-radius: 10px;
+        position: relative;
+        left: 90px;
+        
+}
+button{
+        width: 160px;
+        height:160px;
+        border-radius: 100px;
+        border: none;
+        font-size: 30px;
+        background-color: rgba(93, 93, 93, 0.711);
+        transition: 0.1s;
+}
+button:hover{
+        width: 140px;
+        height: 130px;
+        background-color: rgba(78, 83, 160, 0.351);
+
 }
 
 span {
@@ -51,7 +80,16 @@ span {
 }
 
 .game-wrapp {
-        display: flex;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+/* grid-gap: -50rem; */
+}
+.grid{
+        /* height: 16.25rem ;
+        width: 16.25re1.25;  */
+        /* height:1.2560px; */
+        border: 2px solid white;
+        grid-gap: 1rem;
         justify-content:space-around;
         align-items: center;
 }
@@ -65,69 +103,74 @@ span {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
+        transition: transform 0.6s ;
+        transform-style: preserve-3d;
 }
 
 .flipped-card {
-        background: url(../images/flipped-back-card-resize.png);
-        height: 20rem;
-        width: 15rem;
+        background: url(../images/flipped-back-card.png) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+}
+.flipped-card:hover .ace {
+        transform: scaleY(180deg);
 }
 
 .ace {
         background: url(../images/one-card.jpg);
-        height: 20rem;
-        width: 15rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 20px rgba(82, 82, 82, 0.73);
-        border-radius: 30px;
+        border-radius: 10px;
 
 }
 
 .two {
         background: url(../images/two-card.jpg);
-        height: 20rem;
-        width: 15rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-        border-radius: 30px;
+        border-radius: 10px;
 
 
 }
 
 .queen {
         background: url(../images/queen.jpg);
-        height: 20rem;
-        width: 15rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-        border-radius: 30px;
+        border-radius: 10px;
 
 
 }
 
 .prince {
         background: url(../images/prince.jpg);
-        height: 20rem;
-        width: 15rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-        border-radius: 30px;
+        border-radius: 10px;
 
 
 }
 
 .ten {
         background: url(../images/ten.jpg);
-        height: 20rem;
-        width: 15rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-        border-radius: 30px;
+        border-radius: 10px;
 
 
 }
 
 .seven {
         background: url(../images/seven.jpg);
-        height: 20rem;
-        width: 15rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-        border-radius: 30px;
+        border-radius: 10px;
 
 
 }
