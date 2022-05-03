@@ -33,10 +33,16 @@ body {
         border-radius: 10px;
         left: 90px;
         font-family: "game";
-        background: var(--side-bar-color);
+        background:rgb(34, 193, 195);
+        background: linear-gradient(
+          357deg,
+          rgba(34, 193, 195, 0.5163107479319853),
+          rgba(253, 187, 45, 0.5891398795846463)
+        );
+       ;
         text-shadow: var(--text-shadow);
         color: var(--text-color);
-        font-size: var(--font-size)
+        font-size: var(--font-size);
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -47,6 +53,7 @@ body {
         display: flex;
         flex-direction: column;
         align-content: space-between;
+        font-size: 20px;
 }
 .btn-new-game button {
         width: 160px;
