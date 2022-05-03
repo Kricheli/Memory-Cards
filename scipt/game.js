@@ -2,8 +2,8 @@
 const tableGame = document.querySelector('.grid');
 const guessesGood = document.querySelector("#correct-score");
 const guessesBed = document.querySelector("#incorrect-score");
-const message = document.querySelector('#paragraph')
-
+const message = document.querySelector('#paragraph')                    
+ let totalSeconds = 0
 let toStop = false;
 tableGame.addEventListener('click', flipCard);
 tableGame.addEventListener('click', gameCheck);
@@ -79,6 +79,7 @@ function gameCheck(event) {
             lastFlippedCard = null;
             if (guessesRight === cardArrayOptions.length) {
                 message.innerHTML = 'You Won!!!!!!!!💪💪💪💪💪 go find harder game'
+
                 toStop = true;
             }
         }
@@ -113,30 +114,38 @@ function flipAgain(card1, card2) {
 
 const minutesLabel = document.getElementById("minutes");
 const secondsLabel = document.getElementById("seconds");
-let totalSeconds = 0;
+;
 
 function setTime() {
-    const toStopTimer =  toStop;
-    ++totalSeconds;
-    secondsLabel.innerHTML = pad(totalSeconds % 60,toStopTimer);
-    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60),toStopTimer);
-    setTime()
-}
-
-function pad(val, tostop) {
-    if (!tostop) {
-        let valString = val + "";
-        if (valString.length < 2) {
-            return "0" + valString;
-        } else {
-            return valString;
-        }
+    const toStopTimer = toStop;
+    if (toStopTimer) {
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
     }
+    else {
+        totalSeconds++;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        setTimeout(setTime, 1000);
+    }
+
+    
 }
 
-function startTimer() {
-    totalSeconds = 0;
+function pad(val) {
 
-    setTime()
-    tableGame.removeEventListener('click', startTimer)
+    let valString = val + "";
+    if (valString.length < 2) {
+        return "0" + valString;
+    } else {
+        return valString;
+    }
+
+}
+
+export function startTimer() {
+    totalSeconds = 0
+    tableGame.removeEventListener('click', startTimer);
+    setTimeout(setTime, 0);
+
 }
