@@ -68,8 +68,8 @@ function flipCard(event) {
 ;
 
 function gameCheck(event) {
-    if (event.target.getAttribute('type')) {
 
+    if (event.target.getAttribute('type')) {
         console.log('gamecheck working')
         if (lastFlippedCard === null) {
             lastFlippedCard = event.target;
@@ -79,10 +79,7 @@ function gameCheck(event) {
             lastFlippedCard = null;
             if (guessesRight === cardArrayOptions.length) {
                 message.innerHTML = 'You Won!!!!!!!!💪💪💪💪💪 go find harder game'
-
                 toStop = true;
-
-
             }
         }
         else {
