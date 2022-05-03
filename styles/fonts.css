@@ -1,16 +1,3 @@
-@font-face {
-        font-family: "ultra";
-        src: url("../fonts/Ultra-Regular.ttf") format("OpenType");
-        font-weight: normal;
-        font-style: normal;
-      }
-
-@font-face {
-        font-family: "nosifer";
-        src: url("../fonts/Nosifer-Regular.ttf") format("OpenType");
-        font-weight: normal;
-        font-style: normal;
-      }
 
 @font-face {
         font-family: "wonderbar";

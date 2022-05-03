@@ -1,160 +1,143 @@
+/* basic layout */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html {
-  cursor: url(../images/cursor.cur), auto;
-  height: 100vh;
+        cursor: url(../images/utilities/cursor.cur), auto;
+        height: 100vh;
+}
+/* header */
+#header {
+        text-align: center;
+        font-family: wonderbar;
+        font-size: 3rem;
+        color: var(--text-color);
+        text-shadow: var(--text-bottom-shadow);
 }
 
 body {
-  background: url(../images/fortnite-background.png) no-repeat center
+  background: url(../images/utilities/fortnite-background.png) no-repeat center
     center/cover;
   position: relative;
   text-align: center;
   height: 100vh;
   width: 100vw;
 }
-
-.container h1 {
-  text-align: center;
-  font-family: wonderbar;
-  font-size: 42px;
-  background: -webkit-linear-gradient(rgb(115, 100, 100), #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 15px 20px 20px rgb(108, 108, 108);
-}
-
-.text-container {
-  color: var(--white-color);
-}
-
+/* sidebar */
 .side-bar-container {
-  height: 44rem;
-  width: 16.5rem;
-  padding: 1rem;
-  font-family: "game";
-  /* border: 2px solid white; */
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    357deg,
-    rgba(34, 193, 195, 0.5163107479319853),
-    rgba(253, 187, 45, 0.5891398795846463)
-  );
-  text-shadow: 10px 10px 20px #333;
-  color: #ccc;
-  font-size: 30px;
-  /* font-weight: bold; */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  border-radius: 10px;
-  position: relative;
-  left: 90px;
+        height: 38rem;
+        width: 15rem;
+        padding: 20px;
+        border-radius: 10px;
+        left: 90px;
+        font-family: "game";
+        background: var(--side-bar-color);
+        text-shadow: var(--text-shadow);
+        color: var(--text-color);
+        font-size: var(--font-size)
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        position: relative;
 }
-button {
-  width: 160px;
-  height: 160px;
-  border-radius: 100px;
-  border: none;
-  font-size: 30px;
-  background-color: rgba(93, 93, 93, 0.711);
-  transition: 0.1s;
+.side-guesses {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
 }
-button:hover {
-  width: 140px;
-  height: 130px;
-  background-color: rgba(78, 83, 160, 0.351);
+.btn-new-game button {
+        width: 160px;
+        height:160px;
+        border-radius: 100px;
+        border: none;
+        font-size: 30px;
+        background-color: rgba(93, 93, 93, 0.711);
+        transition: 0.1s;
 }
-
+.btn-new-game button:hover {
+        width: 140px;
+        height: 130px;
+        background-color: rgba(78, 83, 160, 0.351);
+}
 span {
   margin-bottom: 40px;
 }
-
-.side-guesses {
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-}
-
+/* game section */
 .game-wrapp {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* grid-gap: -50rem; */
+display: grid;
+grid-template-columns: repeat(3, 1fr);
 }
+/* cards section */
 .grid {
-  justify-content: space-around;
-  align-items: center;
-  grid-gap: 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
+        grid-gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        transform-style: preserve-3d;
+        transform-origin: center right;
+        transition: transform 10s;
+        justify-content:space-around;
+        align-items: center;
 }
 
 .flipped-card {
-  background: url(../images/flipped-back-card.png) no-repeat center center/cover;
-  height: 12.6rem;
-  width: 10.5rem;
+        background: url(../images/cards/flipped-back-card.png) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+        transition: 0.8s;
+        transform:rotateY(180deg);
 }
-.flipped-card:hover .ace {
-  transform: scaleY(180deg);
-}
-
 .ace {
-  background: url(../images/one-card.jpg) no-repeat center center/cover;
-  height: 12.6rem;
-  width: 10.5rem;
-  box-shadow: 10px 20px 20px rgba(82, 82, 82, 0.73);
-  border-radius: 10px;
+        background: url(../images/cards/one-card.jpg) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+        box-shadow: 10px 20px 20px rgba(82, 82, 82, 0.73);
+        border-radius: 10px;
+        transition: 0.3s;
 }
-
-.two {
-  background: url(../images/two-card.jpg) no-repeat center center/cover;
-  height: 12.6rem;
-  width: 10.5rem;
-  box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-  border-radius: 10px;
-}
-
 .queen {
-  background: url(../images/queen.jpg) no-repeat center center/cover;
-  height: 12.6rem;
-  width: 10.5rem;
-  box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-  border-radius: 10px;
+        background: url(../images/cards/queen.jpg) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 10px;
+        transition: 0.3s;
 }
-
 .prince {
-  background: url(../images/prince.jpg) no-repeat center center/cover;
-  height: 12.6rem;
-  width: 10.5rem;
-  box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-  border-radius: 10px;
+        background: url(../images/cards/prince.jpg) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 10px;
+        transition: 0.3s;
 }
-
 .ten {
-  background: url(../images/ten.jpg) no-repeat center center/cover;
-  height: 12.6rem;
-  width: 10.5rem;
-  box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-  border-radius: 10px;
+        background: url(../images/cards/ten.jpg) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 10px;
+        transition: 0.3s;
 }
-
 .seven {
-  background: url(../images/seven.jpg) no-repeat center center/cover;
-  height: 12.6rem;
-  width: 10.5rem;
-  box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
-  border-radius: 10px;
+        background: url(../images/cards/seven.jpg) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 10px;
+        transition: 0.3s;
 }
-
+.two {
+        background: url(../images/cards/two-card.jpg) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+        box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
+        border-radius: 10px;
+        transition: 0.3s;
+}
 @media (max-width: 1500px) {
   .side-bar-container {
     width: 11rem;
