@@ -43,6 +43,7 @@ export function shuffle(originalArray) {
     return array;
 }
 
+
 export function drawCards(cards, element) {
 
     for (let card of cards) {
