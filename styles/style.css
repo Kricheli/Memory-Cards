@@ -33,19 +33,40 @@ body{
 }
 
 .side-bar-container {
-        height: 50rem;
-        width: 11rem;
-
+        height: 38rem;
+        width: 15rem;
         padding: 20px;
-        border: 2px solid white;
+        font-family: "game";
+        /* border: 2px solid white; */
+        background: rgb(34,193,195);
+        background: linear-gradient(357deg, rgba(34,193,195,0.5163107479319853), rgba(253,187,45,0.5891398795846463) );
+        text-shadow: 10px 10px 20px #333;
         color: #ccc;
-        font-size: 40px;
-        font-weight: bold;
+        font-size: 30px;
+        /* font-weight: bold; */
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         text-align: center;
         border-radius: 10px;
+        position: relative;
+        left: 90px;
+        
+}
+button{
+        width: 160px;
+        height:160px;
+        border-radius: 100px;
+        border: none;
+        font-size: 30px;
+        background-color: rgba(93, 93, 93, 0.711);
+        transition: 0.1s;
+}
+button:hover{
+        width: 140px;
+        height: 130px;
+        background-color: rgba(78, 83, 160, 0.351);
+
 }
 
 span {
@@ -59,15 +80,15 @@ span {
 }
 
 .game-wrapp {
-        display: flex;
-
-        justify-content: space-around;
-        align-items: center;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+/* grid-gap: -50rem; */
 }
 .grid{
         /* height: 16.25rem ;
         width: 16.25re1.25;  */
         /* height:1.2560px; */
+        border: 2px solid white;
         grid-gap: 1rem;
         justify-content:space-around;
         align-items: center;
@@ -78,23 +99,27 @@ span {
         width: 20rem;  */
         /* height: 60px; */
         grid-gap: 1.5rem;
-
         /* border: 2px solid white; */
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
+        transition: transform 0.6s ;
+        transform-style: preserve-3d;
 }
 
 .flipped-card {
-        background: url(../images/flipped-back-card-resize.png);
-        height: 12.55rem;
-        width: 7.5rem;
+        background: url(../images/flipped-back-card.png) no-repeat center center/cover;
+        height: 12.60rem;
+        width: 10.5rem;
+}
+.flipped-card:hover .ace {
+        transform: scaleY(180deg);
 }
 
 .ace {
         background: url(../images/one-card.jpg);
-        height: 12.55rem;
-        width: 7.5rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 20px rgba(82, 82, 82, 0.73);
         border-radius: 10px;
 
@@ -102,8 +127,8 @@ span {
 
 .two {
         background: url(../images/two-card.jpg);
-        height: 12.55rem;
-        width: 7.5rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
         border-radius: 10px;
 
@@ -112,8 +137,8 @@ span {
 
 .queen {
         background: url(../images/queen.jpg);
-        height: 12.55rem;
-        width: 7.5rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
         border-radius: 10px;
 
@@ -122,8 +147,8 @@ span {
 
 .prince {
         background: url(../images/prince.jpg);
-        height: 12.55rem;
-        width: 7.5rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
         border-radius: 10px;
 
@@ -132,8 +157,8 @@ span {
 
 .ten {
         background: url(../images/ten.jpg);
-        height: 12.55rem;
-        width: 7.5rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
         border-radius: 10px;
 
@@ -142,8 +167,8 @@ span {
 
 .seven {
         background: url(../images/seven.jpg);
-        height: 12.55rem;
-        width: 7.5rem;
+        height: 12.60rem;
+        width: 10.5rem;
         box-shadow: 10px 20px 30px rgba(82, 82, 82, 0.73);
         border-radius: 10px;
 
