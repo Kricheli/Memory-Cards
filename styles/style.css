@@ -1,17 +1,21 @@
-*{
+* {
         margin: 0;
         padding: 0;
 }
-html{
+
+html {
         cursor: url(../images/cursor.cur), auto;
         height: 100vh;
 }
+
 body{
         background: url(../images/fortnite-background.png) no-repeat center center/cover;
+
         text-align: center;
         /* height: 100vh; */
         /* width: 100vw; */
 }
+
 .container h1{
        text-align: center;
        font-family: wonderbar;
@@ -20,18 +24,43 @@ body{
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
        text-shadow: 15px 20px 20px rgb(108, 108, 108);
-}
-.text-container{
-        color: var(--white-color) ;
 
 }
-.side-bar-container{
-        height: 30rem;
-        width: 10rem;
-        border: 2px solid white;
+
+.text-container {
+        color: var(--white-color);
+
 }
-.game-wrapp{
+
+.side-bar-container {
+        height: 50rem;
+        width: 11rem;
+
+        padding: 20px;
+        border: 2px solid white;
+        color: #ccc;
+        font-size: 40px;
+        font-weight: bold;
         display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        border-radius: 10px;
+}
+
+span {
+        margin-bottom: 40px;
+}
+
+.side-guesses {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+}
+
+.game-wrapp {
+        display: flex;
+
         justify-content: space-around;
         align-items: center;
 }
@@ -40,18 +69,29 @@ body{
         width: 16.25re1.25;  */
         /* height:1.2560px; */
         grid-gap: 1rem;
+        justify-content:space-around;
+        align-items: center;
+}
+
+.grid {
+        /* height: 20rem ;
+        width: 20rem;  */
+        /* height: 60px; */
+        grid-gap: 1.5rem;
+
         /* border: 2px solid white; */
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
 }
-.flipped-card{
+
+.flipped-card {
         background: url(../images/flipped-back-card-resize.png);
         height: 12.55rem;
         width: 7.5rem;
 }
 
-.ace{
+.ace {
         background: url(../images/one-card.jpg);
         height: 12.55rem;
         width: 7.5rem;
@@ -60,7 +100,7 @@ body{
 
 }
 
-.two{
+.two {
         background: url(../images/two-card.jpg);
         height: 12.55rem;
         width: 7.5rem;
@@ -70,7 +110,7 @@ body{
 
 }
 
-.queen{
+.queen {
         background: url(../images/queen.jpg);
         height: 12.55rem;
         width: 7.5rem;
@@ -80,7 +120,7 @@ body{
 
 }
 
-.prince{
+.prince {
         background: url(../images/prince.jpg);
         height: 12.55rem;
         width: 7.5rem;
@@ -90,7 +130,7 @@ body{
 
 }
 
-.ten{
+.ten {
         background: url(../images/ten.jpg);
         height: 12.55rem;
         width: 7.5rem;
@@ -100,7 +140,7 @@ body{
 
 }
 
-.seven{
+.seven {
         background: url(../images/seven.jpg);
         height: 12.55rem;
         width: 7.5rem;
