@@ -71,7 +71,7 @@ function gameCheck(event) {
     else if (lastFlippedCard.getAttribute('class') === event.target.getAttribute('class')) {
         guessesRight++;
         if( guessesRight === 6){
-        return (playerInnerMessage.textContent = 'Congrats Einstein, you won!')
+         playerInnerMessage.textContent = 'Congrats Einstein, you won!'
         }
         lastFlippedCard = null;
     } 
