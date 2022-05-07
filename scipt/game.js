@@ -1,18 +1,25 @@
-
 const tableGame = document.querySelector('.grid');
 const guessesGood = document.querySelector("#correct-score");
 const guessesBed = document.querySelector("#incorrect-score");
-const message = document.querySelector('#paragraph')                    
- let totalSeconds = 0
-let toStop = false;
-tableGame.addEventListener('click', flipCard);
+const message = document.querySelector('#paragraph')
+const newGame = document.querySelector('button');
+const minutesLabel = document.getElementById("minutes");
+const secondsLabel = document.getElementById("seconds");
+
+newGame.addEventListener('click', restart);
 tableGame.addEventListener('click', gameCheck);
 tableGame.addEventListener('click', startTimer);
-export const cardArrayOptions = ['ace', 'seven', 'queen', 'prince', 'ten', 'two'];
+let notRunnig = false;
+const cardArrayOptions = ['ace', 'seven', 'queen', 'prince', 'ten', 'two'];
+let totalSeconds = -1;
+let toStop = false;
 let lastFlippedCard = null;
 let guessesRight = 0;
 let guessesWrong = 0;
-export function generateCards(cardArrayOptions) {
+let gameCards = generateCards(cardArrayOptions);
+drawCards(gameCards, tableGame);
+
+function generateCards(cardArrayOptions) {
     const cardArray = [];
     for (let i = 0; i < cardArrayOptions.length; i++) {
         cardArray.push(cardArrayOptions[i]);
@@ -21,7 +28,7 @@ export function generateCards(cardArrayOptions) {
     const generatedCards = shuffle(cardArray);
     return generatedCards
 }
-export function shuffle(originalArray) {
+function shuffle(originalArray) {
     const array = [].concat(originalArray);
     let currentIndex = array.length;
     let temporaryValue;
@@ -43,11 +50,12 @@ export function shuffle(originalArray) {
     return array;
 }
 
-export function drawCards(cards, element) {
+function drawCards(gameCards, element) {
 
-    for (let card of cards) {
+    for (let i =0 ; i< gameCards.length;i++) {
         const cardToDraw = document.createElement('div')
-        cardToDraw.setAttribute('type', card);
+        cardToDraw.setAttribute('type', gameCards[i]);
+        cardToDraw.setAttribute('data-id',i);
         cardToDraw.setAttribute('class', 'flipped-card');
         // cardToDraw.addEventListener('click', flipCard);
         // cardToDraw.addEventListener('click', gameCheck);
@@ -65,36 +73,35 @@ function flipCard(event) {
 
 }
 
-;
+function isUserWon() {
+    if (guessesRight === cardArrayOptions.length) {
+        message.innerHTML = 'You Won!!!!!!!!💪💪💪💪💪 go find harder game'
+        toStop = true;
+    }
+}
 
 function gameCheck(event) {
     if (event.target.getAttribute('type')) {
+        console.log('main if')
 
-        console.log('gamecheck working')
+        flipCard(event)
         if (lastFlippedCard === null) {
             lastFlippedCard = event.target;
+            console.log('second if')
+
         }
-        else if (lastFlippedCard.getAttribute('class') === event.target.getAttribute('class')) {
+        else if (lastFlippedCard.getAttribute('type') === event.target.getAttribute('type')  && event.target.getAttribute('data-id') !== lastFlippedCard.getAttribute('data-id') ) {
+            console.log('third if')
+            console.log(lastFlippedCard.getAttribute('type'))
+            console.log(event.target.getAttribute('type'))
             guessesGood.innerHTML = ++guessesRight;
+            isUserWon();
             lastFlippedCard = null;
-            if (guessesRight === cardArrayOptions.length) {
-                message.innerHTML = 'You Won!!!!!!!!💪💪💪💪💪 go find harder game'
-                
-                toStop = true;
-
-
-            }
         }
-        else {
-            console.log('else working')
-            guessesBed.innerHTML = ++guessesWrong;
-            setTimeout(function () { flipAgain(lastFlippedCard, event.target) }, 1000);
-            tableGame.removeEventListener('click', flipCard);
+        else if( event.target.getAttribute('data-id') !== lastFlippedCard.getAttribute('data-id'))  {
             tableGame.removeEventListener('click', gameCheck);
-            setTimeout(function () {
-                tableGame.addEventListener('click', flipCard);
-                tableGame.addEventListener('click', gameCheck);
-            }, 1000)
+            console.log('fourth if')
+            guessBad(event);
 
         }
     }
@@ -102,21 +109,26 @@ function gameCheck(event) {
 }
 
 
-
-
-function flipAgain(card1, card2) {
-
-    console.log('working again')
-    card1.setAttribute('class', 'flipped-card')
-    card2.setAttribute('class', 'flipped-card')
-    lastFlippedCard = null
+function guessBad(event) {
+    guessesBed.innerHTML = ++guessesWrong;
+    setTimeout(() => {flipAgain(lastFlippedCard, event.target)},1000);
 
 }
 
+function flipAgain(card1, card2) {
+    console.log('working again')
+    card1.setAttribute('class', 'flipped-card')
+    card2.setAttribute('class', 'flipped-card')
+    tableGame.addEventListener('click', gameCheck);
+    lastFlippedCard = null
 
-const minutesLabel = document.getElementById("minutes");
-const secondsLabel = document.getElementById("seconds");
-;
+
+
+    // setTimeout(function () {
+    //     tableGame.addEventListener('click', flipCard);
+    //     tableGame.addEventListener('click', gameCheck);
+    // }, 1000)
+}
 
 function setTime() {
     const toStopTimer = toStop;
@@ -131,9 +143,23 @@ function setTime() {
         setTimeout(setTime, 1000);
     }
 
-    
+
 }
 
+function restart() {
+    let guessesRight = 0;
+    let guessesWrong = 0
+    totalSeconds = 0;
+    tableGame.innerHTML = '';
+    const gameCards = generateCards(cardArrayOptions);
+    drawCards(gameCards, tableGame);
+    if (toStop) {
+        toStop = false;
+        setTimeout(setTime, 1000);
+    }
+
+    // newGame.removeEventListener('click', restart);
+}
 function pad(val) {
 
     let valString = val + "";
@@ -145,9 +171,11 @@ function pad(val) {
 
 }
 
-export function startTimer() {
-    totalSeconds = 0
+function startTimer() {
+    toStop = false;
+    totalSeconds = -1;
     tableGame.removeEventListener('click', startTimer);
     setTimeout(setTime, 0);
 
 }
+
