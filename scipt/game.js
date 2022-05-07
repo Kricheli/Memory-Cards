@@ -9,7 +9,6 @@ const secondsLabel = document.getElementById("seconds");
 newGame.addEventListener('click', restart);
 tableGame.addEventListener('click', gameCheck);
 tableGame.addEventListener('click', startTimer);
-let notRunnig = false;
 const cardArrayOptions = ['ace', 'seven', 'queen', 'prince', 'ten', 'two'];
 let totalSeconds = -1;
 let toStop = false;
