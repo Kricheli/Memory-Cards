@@ -6,7 +6,7 @@
 }
 html {
   cursor: url(../images/utilities/cursor.cur), auto;
-  height: 100vh;
+  height: 104vh;
 }
 /* header */
 #header {
@@ -255,33 +255,32 @@ span {
     margin-right: 90px;
   }
   .flipped-card {
-    height: 7rem;
-    width: 5rem;
+    height: 7.5rem;
+    width: 6rem;
   }
   .ace {
-    height: 7rem;
-    width: 5rem;
+    height: 7.5rem;
+    width: 6rem;
   }
   .two {
-    height: 7rem;
-    width: 5rem;
+    height: 7.5rem;
+    width: 6rem;
   }
   .queen {
-    height: 7rem;
-    width: 5rem;
+    height: 7.5rem;
+    width: 6rem;
   }
   .prince {
-    height: 7rem;
-    width: 5rem;
+    height: 7.5rem;
+    width: 6rem;
   }
   .ten {
-    height: 7rem;
-    width: 5rem;
+    height: 7.5rem;
+    width: 6rem;
   }
-
   .seven {
-    height: 7rem;
-    width: 5rem;
+    height: 7.5rem;
+    width: 6rem;
   }
 }
 
@@ -349,7 +348,7 @@ span {
 }
 @media (max-width: 380px) {
   html {
-    height: 150vh;
+    height: 200vh;
   }
   .game-wrapp {
     display: flex;
@@ -371,5 +370,11 @@ span {
 
   button {
     margin-top: -40px;
+  }
+}
+
+@media (max-height: 601px) {
+  html {
+    height: 125vh;
   }
 }
