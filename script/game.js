@@ -5,6 +5,7 @@ const message = document.querySelector('#header')
 const newGame = document.querySelector('button');
 const minutesLabel = document.getElementById("minutes");
 const secondsLabel = document.getElementById("seconds");
+const audio = new Audio("../audio/Assets_Audio_flip.wav");
 
 newGame.addEventListener('click', restart);
 tableGame.addEventListener('click', gameCheck);
@@ -65,6 +66,7 @@ function flipCard(event) {
     if (event.target.getAttribute('type')) {
         const element = event.target;
         element.setAttribute('class', element.getAttribute('type'));
+        audio.play()
         // gameCheck(event)
     }
 
