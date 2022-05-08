@@ -20,3 +20,7 @@
 - [Or Eliyahu](https://github.com/OrEliyahu43)
 - [Sharona Tok](https://github.com/sharonatok)
 - [Eden Kricheli](https://github.com/Kricheli)
+<a href="https://github.com/kricheli/card-game/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=kricheli/card-game" />
+</a>
+
